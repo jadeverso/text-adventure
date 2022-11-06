@@ -11,7 +11,7 @@ local scenes <const> = {
 [[
 This is just a demo. You can insert any text you want here.
 
-But wait... you see someone.
+But wait... someone wants to talk to you.
 
 ]]
 ..
