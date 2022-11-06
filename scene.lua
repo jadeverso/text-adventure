@@ -1,6 +1,6 @@
 _G.Name = ""
 _G.Backpack = {
-    ['Flashlight'] = true,
+    ['Wooden Sword'] = false,
     ['Axe'] = false,
     ['Coins'] = 0,
 }
@@ -8,17 +8,17 @@ _G.Backpack = {
 local scenes <const> = {
     ['scene_1'] = function()
         print(
-            [[
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec justo quam, fermentum eu vulputate et, sollicitudin in lorem. Morbi nec nunc volutpat, dignissim tellus non, vulputate nisi. Mauris bibendum metus dui, non dictum arcu interdum eu. Vivamus hendrerit libero mi, vitae accumsan est feugiat ac. Aenean convallis nibh gravida tempor facilisis. Donec mollis purus id lorem fermentum posuere. Fusce vel erat porta, tristique quam quis, mattis est. Pellentesque hendrerit commodo congue. Praesent in luctus neque. Suspendisse libero ligula, lobortis ut finibus vel, condimentum maximus diam.  
+[[
+This is just a demo. You can insert any text you want here.
 
-Duis volutpat enim eget metus tristique facilisis. Maecenas bibendum metus in pulvinar pretium.
+But wait... you see someone.
 
 ]]
-            ..
-            '\27[32;1mJoana:\27[m '
-            ..
-            [[
-Seu nome, por favor?]]
+..
+'\27[31;1mRed Haired Girl:\27[m '
+..
+[[
+Hello! Could you tell me your name?]]
         )
 
         while (string.len(Name) < 3 or string.len(Name) >=14) do
@@ -26,26 +26,44 @@ Seu nome, por favor?]]
             Name = io.read()
         end
 
-        return true;
+        return true; -- continues the script
     end,
     ['scene_2'] = function()
 
-        -- if (Backpack['Flashlight']) then
-        --     print('You have a flashlight.')
-        -- else
-        --     print('You do not have a flashlight.')
-        -- end
+        print(
+'\27[31;1mRed Haired Girl:\27[m '
+..
+'Oh, '..Name..'! '
+..
+'What a good name! Here, it is dangerous to go alone. Take this!'
+..
+[[
 
-        print('\27[32;1mJoana:\27[m O ' .. Name)
+
+*You obtained a wooden sword!*]]
+        )
+
+        Backpack['Wooden Sword'] = true
+
         return true;
     end,
     ['scene_3'] = function()
-        print('\27[32;1mJoana:\27[m '
-            ..
-            [[
-Encerrou o jogo]]
-        )
-        return false;
+        
+        if(Backpack['Wooden Sword']) then
+
+            print(
+[[
+You have a cool sword.]]
+            )
+
+        else 
+            print(
+[[
+You do not have a cool sword.]]
+            )
+        end
+
+        return false; -- stops the script
     end,
 }
 
