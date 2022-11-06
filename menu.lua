@@ -34,6 +34,7 @@ Run a command:]]
         if( command == 'load' ) then return 'load' end
         if( command == 'new game' ) then return 'new game' end
         if (command == 'exit') then return 'exit' end
+        if (command == 'sleep') then return 'sleep' end
     end
 
 end
