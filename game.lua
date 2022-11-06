@@ -11,7 +11,7 @@ function M.start()
             local command = M.handle_scene_end()
             if (command == 'continue') then Current = Current + 1 end
             if (command == 'save') then print('saved') break end
-            if (command == 'quit without saving') then break end
+            if (command == 'quit') then break end
         end
     end
 end
@@ -19,7 +19,7 @@ end
 function M.handle_scene_end()
     local command = ""
     while not (command == 'continue' or command == 'save' or command == 'quit without saving') do
-        io.write('\nPossible actions: continue, save, or quit without saving \n\nType your next action \n> ')
+        io.write('\nPossible actions: continue, save, or quit\n\nType your next action \n> ')
         command = io.read()
         os.execute('cls')
     end
