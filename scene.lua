@@ -1,6 +1,8 @@
-_G.Name = "Default"
+_G.Name = ""
 _G.Backpack = {
     ['Flashlight'] = true,
+    ['Axe'] = false,
+    ['Coins'] = 0,
 }
 
 local scenes <const> = {
@@ -18,15 +20,21 @@ Duis volutpat enim eget metus tristique facilisis. Maecenas bibendum metus in pu
             [[
 Seu nome, por favor?]]
         )
-        io.write('\n> ')
-        Name = io.read()
+
+        while (string.len(Name) < 3 or string.len(Name) >=14) do
+            io.write('\n> ')
+            Name = io.read()
+        end
+
         return true;
     end,
     ['scene_2'] = function()
-        
-        if (Backpack['Flashlight']) then
-            print('You have a flashlight.')
-        end
+
+        -- if (Backpack['Flashlight']) then
+        --     print('You have a flashlight.')
+        -- else
+        --     print('You do not have a flashlight.')
+        -- end
 
         print('\27[32;1mJoana:\27[m O ' .. Name)
         return true;

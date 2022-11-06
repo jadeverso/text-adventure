@@ -18,6 +18,9 @@ end
 
 while true do
     os.execute('cls')
+    print(
+        'You currently have '.._G.Backpack['Coins' or 0]..' coins'..'\n'
+    )
     local should_continue = scene_handler.scene_load(Current)
     if (should_continue == false) then break
     else
